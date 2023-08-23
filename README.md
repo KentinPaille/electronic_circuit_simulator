@@ -5,23 +5,25 @@ components, inputs or outputs) from a configuration file, and injects values int
 Usage:
 
 ```
+$ make
+
 $ ./nanotekspice
 Usage: ./nanotekspice circuit/FILE.nts 
 
 
 SHELL:
         exit:           closes the program.
-        display/d:      prints the current tick and the value of all inputs and outputs in the standard output.
+        display:      prints the current tick and the value of all inputs and outputs in the standard output.
         input=value:    changes the value of an input. Possible value are 0, 1 and U. This also apply to clocks. Use *=value to change all inputs in same time.
-        simulate/s:     simulate a tick of the circuit.
-        loop/l:         continuously runs the simulation (simulate, display, simulate, ...) without displaying a prompt, until SIGINT is received.
+        simulate:     simulate a tick of the circuit.
+        loop:         continuously runs the simulation (simulate, display, simulate, ...) without displaying a prompt, until SIGINT is received.
 
 ```
 
 Demo:
 
 ```
-$ ./nanotekspice components/GateComponents/Gates/or.nts
+$ ./nanotekspice circuit/or.nts
 > display
 tick: 0
 input(s):
@@ -40,8 +42,8 @@ input(s):
 output(s):
   out: 0
 > in_2=1
-> s
-> d
+> simulate
+> display
 tick: 2
 input(s):
   in_1: 0
